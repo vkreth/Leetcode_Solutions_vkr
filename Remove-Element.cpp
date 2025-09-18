@@ -10,6 +10,6 @@ public:
                 x++;
             }
         }
-        return x; 
+        return x;
     }
 };
