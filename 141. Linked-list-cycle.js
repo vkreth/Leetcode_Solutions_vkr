@@ -11,16 +11,17 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    let nodespresent=new Set();
-    let current=head;
-    while(current!=null)
+    if(head==null)return false;
+    let slow=head;
+    let fast=head.next;
+    while(slow!=fast)
     {
-        if(nodespresent.has(current))
+        if(fast===null || fast.next==null)
         {
-            return true;
+            return false;
         }
-        nodespresent.add(current);
-        current=current.next;
+        slow=slow.next;
+        fast=fast.next.next;
     }
-    return false;
+    return true;
 };
