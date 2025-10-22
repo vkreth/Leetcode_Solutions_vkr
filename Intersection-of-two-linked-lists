@@ -1,0 +1,30 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function(headA, headB) {
+    let keep= new Set();
+    while(headB)
+    {
+        keep.add(headB);
+        headB=headB.next;
+    }
+    while(headA)
+    {
+        if(keep.has(headA))
+        {
+            return headA;
+        }
+        headA=headA.next;
+    }
+    return null;
+};
